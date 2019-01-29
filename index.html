@@ -12,61 +12,39 @@
       crossorigin="anonymous"
     />
     <!-- <link rel="stylesheet" type="text/css" media="screen" href="shared.css" /> -->
-    <script src="data2.js"></script>
+    <script src="data.js"></script>
     <script src="main.js"></script>
   </head>
-  <body class="container" onload="loadDataGrid()">
-
+  <body class="container">
+        
     <div class="container" style="background-color:yellow">
-
         <header class="jumbotron" style="background-color:black">
             <h1 style="color:white" >Product Catalog</h1>
             <div class="container" style="background-color:yellow">
-                    <section class="row-fluid">
-                            <section id="dataList">
-                                <div class="row">
-                                    <div class="col-md">
-                                        <b>Product Name</b>
-                                    </div>
-                                    <div class="col-md">
-                                        <b>Product Price</b>
-                                    </div>
-                                    <div class="col-md">
-                                            <b>Cart</b>
-                                    </div>
-                                    <div class="col-md">
-                                            <b>Quantity </b>
-                                    </div>                     
-                                </div>         
-                            </section>
-                            <!-- <section>
-                                    <div class="row">
-                                        <div class="col-sm">
-                                            Apples
-                                        </div>
-                                        <div class="col-sm">
-                                            1
-                                        </div>
-                                        <div class="col-sm">
-                                                <button class="btn btn-dark" onclick="loadDataGrid()">Add</button>
-                                                <button class="btn btn-dark" onclick="loadDataGrid()">Rem</button>
-                                            </div>
-                                            <div class="col-sm">
-                                                Counter
-                                            </div>
-                                    </div>     
-                            </section> -->
-                            <div class="container" style="background-color:yellow">
-                                    <section class="btn-group">
-                                            <button class="btn btn-dark" onclick="loadDataGrid()">Continue</button>
-                                    </section>
-                                    </div>    
-                                            </section>
+                <section class="row-fluid">
+                    <section id="dataList">
+                        <div class="row">
+                            <div class="col-md">
+                                <b>Product Name</b>
+                            </div>
+                            <div class="col-md">
+                                <b>Product Price</b>
+                            </div>
+                            <div class="col-md">
+                                <b>Cart</b>
+                            </div>
+                            <div class="col-md">
+                                <b>Quantity </b>
+                            </div>                     
+                        </div>         
+                    </section>
+                    <div class="container" style="background-color:yellow">
+                        <section class="btn-group">
+                            <button class="btn btn-dark" role="link" onclick="window.location='checkout.html'">Continue</button>
                         </section>
-                </div>
+                    </div>    
+                </section>
         </header>
-    
     </div>
-
   </body>
 </html>

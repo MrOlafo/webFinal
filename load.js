@@ -17,14 +17,11 @@ var products = [];
 //     return average;
 // }
 
-function cargar_pagina()
-{onclick=console.log(hola)}
 
 var amount = 0
 
 function sumAmount(){
-    //amount=amount+1
-    console.log(hola);
+    amount=amount+1
 }
 
 function loadDataGrid() {
