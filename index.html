@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <title>Working with data</title>
+    <title>Web Final Test</title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link
       rel="stylesheet"
@@ -11,42 +11,11 @@
       integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS"
       crossorigin="anonymous"
     />
-    <link rel="stylesheet" type="text/css" media="screen" href="shared.css" />
-    <script src="data.js"></script>
-    <script src="webservices.js"></script>
+    <!-- <link rel="stylesheet" type="text/css" media="screen" href="shared.css" /> -->
+    <script src="main.js"></script>
+    <!-- <script src="webservices.js"></script> -->
   </head>
-  <body class="container" onload="loadDataGrid()">
-    <header class="jumbotron"><h1>List of students</h1></header>
-
-    <section class="row-fluid">
-      <section class="btn-group">
-        <button class="btn btn-primary" onclick="loadDataGrid()">Load</button>
-        <button class="btn btn-secondary" onclick="displayAverage()">
-          Average
-        </button>
-      </section>
-      <section class="span-1">
-        <label for="scoreInput">Passing score</label>
-        <input
-          id="scoreInput"
-          type="number"
-          value="60"
-          onchange="refreshScores()"
-        />
-      </section>
-    </section>
-    <section class="row-fluid">
-      <ol id="dataList2" hidden></ol>
-      <section id="dataList" class="border">
-        <div class="row">
-          <div class="col-md"><b>Id</b></div>
-          <div class="col-md"><b>Name</b></div>
-          <div class="col-md"><b>Score</b></div>
-        </div>
-      </section>
-    </section>
-    <section class="row-fluid">
-      <section id="resultSection" class="alert alert-info"></section>
-    </section>
+  <body class="container">
+    <header class="jumbotron"><h1>Product Catalog</h1></header>
   </body>
 </html>
