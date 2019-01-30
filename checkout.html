@@ -13,9 +13,8 @@
     />
     <!-- <link rel="stylesheet" type="text/css" media="screen" href="shared.css" /> -->
     <script src="data.js"></script>
-    <script src="mainCheck.js"></script>
   </head>
-  <body class="container">
+  <body class="container" onload="loadCheckoutDataGrid()">
         <div class="container" style="background-color:yellow">
             <header class="jumbotron" style="background-color:black">
                 <h1 style="color:white" >Order Sumary</h1>
@@ -40,7 +39,7 @@
                         <div class="container" style="background-color:yellow">
                             <section class="btn-group">
                                 <button class="btn btn-dark" role="link" onclick="window.location='Index.html'">Back</button>
-                                <button class="btn btn-success" role="link" onclick="window.location='Index.html'">Buy</button>
+                                <button class="btn btn-success" role="link" onclick="window.location='Index.html'" onclick="clearCart()">Buy</button>
                             </section>
                         </div>    
                     </section>

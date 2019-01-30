@@ -1,32 +1,41 @@
 var products = [];
 
-var amount = 0
+var cart = {};
 
-function sumAmount(){
+var amount = 0;
 
-    amount = amount+1
+function setCart(productId, quantity){
+    if (quantity == 0){
+        delete cart[productId]
+    }else{
+        cart[productId] = {
+            product: products[productId],
+            quantity 
+        };
+    }
+    localStorage.setItem('cart', JSON.stringify(cart));
+}
 
-    let amountId = document.getElementById("bed");
-
-    amountId.innerHTML = amount
+function sumAmount(event){
+    let quantity = document.getElementById(event.target.dataset.item);
+    let amount = parseInt(quantity.innerText) + 1;
+    quantity.innerHTML = amount;
+    setCart(event.target.dataset.item.replace('quan', '') ,amount);
 }
 
 function resAmount(){
-
-    amount = amount-1
-
-    let amountId = document.getElementById("bed");
-
+    let quantity = document.getElementById(event.target.dataset.item);
+    let amount = parseInt(quantity.innerText) - 1
     if (amount <= 0) {
         amount = 0;
-      }
-
-    amountId.innerHTML = amount
+    }
+    quantity.innerHTML = amount;
+    setCart(event.target.dataset.item.replace('quan', '') ,amount);
 }
 
-function createRow(name, price, id, initAmount){
+function createRow(name, price, id){
     var section = document.createElement("section");
-    section.innerHTML = `<div class="row"><div class="col-md">${name}</div><div class="col-md">${price}</div><div class="col-sm"><button class="btn btn-dark" onclick='sumAmount()'>Add</button><button class="btn btn-dark" onclick='resAmount()'>Rem</button></div><div class="col-md" id="${id}">${initAmount}</div> `;
+    section.innerHTML = `<div class="row"><div class="col-md">${name}</div><div class="col-md">${price}</div><div class="col-sm"><button data-item="quan${id}" class="btn btn-dark" onclick='sumAmount(event)'>Add</button><button data-item="quan${id}" class="btn btn-dark" onclick='resAmount(event)'>Rem</button></div><div class="col-md" id="quan${id}">0</div> `;
     return section;
 }
 
@@ -37,30 +46,30 @@ function createCheckoutRow(name, price, quantity, total){
 }
         
 function loadDataGrid() {
-
+    localStorage.setItem('cart', [JSON.stringify({})]);
     var i = 0;
     let dataList = document.getElementById("dataList");
     
     while (i < products.length)
     {
-        dataList.appendChild(createRow(products[i].name, products[i].price, products[i].name, 0));
+        dataList.appendChild(createRow(products[i].name, products[i].price, i));
 
         i = i + 1;
     }
 }
 
+function clearCart(){
+    localStorage.setItem('cart', [JSON.stringify({})]);
+}
+
 function loadCheckoutDataGrid() {
-
-    var i = 0;
+    let cart = localStorage.getItem('cart');
+    cart = JSON.parse(cart);
     let checkoutDataList = document.getElementById("checkoutDataList");
-    
-    while (i < products.length)
-    {
-        //let amountId = document.getElementById(products[i].name)
-        // amountId.innerHTML = amount
-        checkoutDataList.appendChild(createCheckoutRow(products[i].name, products[i].price,amount, 0));
-
-        i = i + 1;
+    if(cart){
+        for (const item in cart) {
+            checkoutDataList.appendChild(createCheckoutRow(cart[item].product.name, cart[item].product.price, cart[item].quantity, cart[item].product.price * cart[item].quantity));
+        }
     }
 }
 
